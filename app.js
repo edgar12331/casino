@@ -3,10 +3,17 @@
    Responsive Game Clients, Auth & Synced Account Payouts
    ========================================== */
 
-// Discover correct API host
+// ──── BACKEND URL CONFIGURATION ────
+// Setze hier die URL deines Bot-Servers ein (z.B. VPS IP, Render, Railway).
+// Beispiele:
+//   'https://dein-bot.onrender.com'
+//   'http://123.45.67.89:9813'
+//   'https://mein-bot.railway.app'
+const BOT_SERVER_URL = 'http://93.115.101.183:9813';
+
 const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-    ? 'http://localhost:15230'
-    : 'https://www.sakuraboard.info';
+    ? 'http://localhost:9813'
+    : BOT_SERVER_URL;
 
 // Game state
 let user = null;
