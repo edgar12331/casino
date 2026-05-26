@@ -9,7 +9,7 @@
 //   'https://dein-bot.onrender.com'
 //   'http://123.45.67.89:9813'
 //   'https://mein-bot.railway.app'
-const BOT_SERVER_URL = 'http://93.115.101.183:9813';
+const BOT_SERVER_URL = '';
 
 const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
     ? 'http://localhost:9813'
