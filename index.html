@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura Casino – Premium Web-Dashboard</title>
+    <!-- Google Fonts for premium typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for beautiful icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Stars background effect -->
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <!-- MAIN APP CONTAINER -->
+    <div id="app" class="hidden">
+        
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="header-logo">
+                <img src="https://i.postimg.cc/1381yM8G/grafik.png" alt="Sakura Logo" class="pulse-logo">
+                <div class="logo-text">
+                    <h1>Sakura Casino</h1>
+                    <span>DASHBOARD</span>
+                </div>
+            </div>
+            
+            <div class="header-user">
+                <!-- Balance card -->
+                <div class="balance-card animate-pop">
+                    <i class="fa-solid fa-coins gold-coin"></i>
+                    <span id="header-balance">0</span>
+                    <span class="coin-label">Coins</span>
+                </div>
+                
+                <!-- Free cases card -->
+                <div class="cases-card animate-pop" id="header-free-cases-btn">
+                    <i class="fa-solid fa-box-open box-icon"></i>
+                    <span id="header-free-cases">0</span>
+                    <span class="cases-label">Gratis-Kisten</span>
+                </div>
+                
+                <!-- Profile dropdown info -->
+                <div class="user-profile">
+                    <img id="user-avatar" src="" alt="Avatar">
+                    <span id="user-name">Lade...</span>
+                    <button id="logout-btn" title="Abmelden">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- DASHBOARD BODY -->
+        <div class="app-body">
+            
+            <!-- SIDEBAR NAVIGATION -->
+            <aside class="app-sidebar">
+                <nav class="nav-menu">
+                    <button class="nav-item active" data-tab="slots">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <span>🎰 Slots Machine</span>
+                    </button>
+                    <button class="nav-item" data-tab="roulette">
+                        <i class="fa-solid fa-circle-play"></i>
+                        <span>🎡 Roulette</span>
+                    </button>
+                    <button class="nav-item" data-tab="cases">
+                        <i class="fa-solid fa-box-open"></i>
+                        <span>📦 Cases öffnen</span>
+                    </button>
+                    <button class="nav-item" data-tab="blackjack">
+                        <i class="fa-solid fa-id-card"></i>
+                        <span>🃏 Blackjack</span>
+                    </button>
+                    <button class="nav-item" data-tab="daily">
+                        <i class="fa-solid fa-gift"></i>
+                        <span>🎁 Täglich Gratis</span>
+                    </button>
+                </nav>
+                
+                <!-- Bottom Guild info -->
+                <div class="guild-info">
+                    <i class="fa-brands fa-discord"></i>
+                    <div class="guild-text">
+                        <h4>Sakura Discord</h4>
+                        <p>Synchronisiert</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN CONTENT AREA -->
+            <main class="app-main">
+
+                <!-- 🎰 SLOTS TAB -->
+                <section id="tab-slots" class="tab-content active">
+                    <div class="game-header">
+                        <h2>🎰 Slot Machine</h2>
+                        <p>Bringe drei übereinstimmende Symbole in der mittleren Reihe in Position für den doppelten Gewinn oder knacke den Diamanten-Jackpot!</p>
+                    </div>
+
+                    <div class="slots-container">
+                        <!-- Reel Frame -->
+                        <div class="slot-machine-frame">
+                            <div class="reel-pointer left-pointer"><i class="fa-solid fa-caret-right"></i></div>
+                            <div class="reel-pointer right-pointer"><i class="fa-solid fa-caret-left"></i></div>
+                            
+                            <div class="reels-wrapper">
+                                <div class="reel" id="reel-1">
+                                    <div class="reel-strip">
+                                        <div>🍒</div><div>🍋</div><div>🍊</div><div>🍇</div><div>💎</div><div>7️⃣</div><div>🍀</div><div>⭐</div><div>🔔</div>
+                                    </div>
+                                </div>
+                                <div class="reel" id="reel-2">
+                                    <div class="reel-strip">
+                                        <div>🍊</div><div>7️⃣</div><div>🍒</div><div>💎</div><div>🍋</div><div>🔔</div><div>🍇</div><div>⭐</div><div>🍀</div>
+                                    </div>
+                                </div>
+                                <div class="reel" id="reel-3">
+                                    <div class="reel-strip">
+                                        <div>🍀</div><div>🔔</div><div>⭐</div><div>🍋</div><div>🍒</div><div>💎</div><div>🍊</div><div>7️⃣</div><div>🍇</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Betting Panel -->
+                        <div class="betting-panel glass-panel">
+                            <h3>Einsatz festlegen</h3>
+                            <div class="quick-bets">
+                                <button class="btn-quick-bet" data-amount="10">10</button>
+                                <button class="btn-quick-bet" data-amount="50">50</button>
+                                <button class="btn-quick-bet" data-amount="100">100</button>
+                                <button class="btn-quick-bet" data-amount="1000">1K</button>
+                                <button class="btn-quick-bet" data-amount="10000">10K</button>
+                                <button class="btn-quick-bet" data-amount="100000">100K</button>
+                                <button class="btn-quick-bet gold-glow" data-amount="all_in">ALL IN</button>
+                            </div>
+                            
+                            <div class="custom-bet-input">
+                                <i class="fa-solid fa-coins input-coin"></i>
+                                <input type="number" id="slots-bet-input" min="10" placeholder="Einsatz eingeben..." value="10">
+                            </div>
+
+                            <button id="slots-spin-btn" class="btn-primary animate-pulse">🎰 Jetzt Drehen</button>
+                        </div>
+                    </div>
+
+                    <!-- Slots Results -->
+                    <div id="slots-result-card" class="result-card hidden glass-panel">
+                        <div class="result-icon" id="slots-result-icon"></div>
+                        <div class="result-details">
+                            <h4 id="slots-result-title">Gewonnen!</h4>
+                            <p id="slots-result-desc">Du hast +100 Coins gewonnen.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 🎡 ROULETTE TAB -->
+                <section id="tab-roulette" class="tab-content">
+                    <div class="game-header">
+                        <h2>🎡 Roulette</h2>
+                        <p>Setze auf Rot, Schwarz, gerade/ungerade Zahlen, Dutzende oder lande mit einer einzelnen Zahl den x36 Jackpot!</p>
+                    </div>
+
+                    <div class="roulette-layout">
+                        <!-- Roulette Wheel animation -->
+                        <div class="roulette-wheel-container glass-panel">
+                            <div class="wheel-marker"></div>
+                            <div class="roulette-wheel" id="roulette-wheel-spin">
+                                <div class="ball" id="roulette-ball"></div>
+                                <div class="wheel-center">Sakura</div>
+                            </div>
+                            <div class="pocket-display" id="roulette-pocket-display">
+                                <span>-</span>
+                            </div>
+                        </div>
+
+                        <!-- Betting Table options -->
+                        <div class="roulette-betting-table glass-panel">
+                            <h3>1. Wette auswählen</h3>
+                            
+                            <!-- Grid bets -->
+                            <div class="betting-grid">
+                                <button class="btn-bet-option red" data-bet="red">
+                                    <span class="emoji">🔴</span> Rot <span class="mult">x2</span>
+                                </button>
+                                <button class="btn-bet-option black" data-bet="black">
+                                    <span class="emoji">⚫</span> Schwarz <span class="mult">x2</span>
+                                </button>
+                                <button class="btn-bet-option purple-glow" data-bet="even">
+                                    <span>🔢</span> Gerade <span class="mult">x2</span>
+                                </button>
+                                <button class="btn-bet-option purple-glow" data-bet="odd">
+                                    <span>🔢</span> Ungerade <span class="mult">x2</span>
+                                </button>
+                            </div>
+
+                            <!-- Dozens -->
+                            <div class="dozens-grid">
+                                <button class="btn-bet-option blue-glow" data-bet="1-12">
+                                    1-12 <span class="mult">x3</span>
+                                </button>
+                                <button class="btn-bet-option blue-glow" data-bet="13-24">
+                                    13-24 <span class="mult">x3</span>
+                                </button>
+                                <button class="btn-bet-option blue-glow" data-bet="25-36">
+                                    25-36 <span class="mult">x3</span>
+                                </button>
+                            </div>
+
+                            <!-- Number bet -->
+                            <div class="number-bet-selector">
+                                <button class="btn-bet-option gold-glow" data-bet="number" id="btn-roulette-num-bet">
+                                    🎯 Einzelne Zahl <span class="mult">x36</span>
+                                </button>
+                                <input type="number" id="roulette-number-input" min="0" max="36" placeholder="Zahl (0-36)" disabled>
+                            </div>
+
+                            <div class="selected-bet-banner" id="roulette-selected-bet-display">
+                                Gewählte Wette: <strong>Keine</strong>
+                            </div>
+
+                            <!-- Bet size selection -->
+                            <h3 class="margin-top">2. Einsatz bestimmen</h3>
+                            <div class="quick-bets">
+                                <button class="btn-quick-bet-r" data-amount="10">10</button>
+                                <button class="btn-quick-bet-r" data-amount="50">50</button>
+                                <button class="btn-quick-bet-r" data-amount="100">100</button>
+                                <button class="btn-quick-bet-r" data-amount="1000">1K</button>
+                                <button class="btn-quick-bet-r" data-amount="10000">10K</button>
+                                <button class="btn-quick-bet-r" data-amount="100000">100K</button>
+                                <button class="btn-quick-bet-r gold-glow" data-amount="all_in">ALL IN</button>
+                            </div>
+
+                            <div class="custom-bet-input">
+                                <i class="fa-solid fa-coins input-coin"></i>
+                                <input type="number" id="roulette-bet-input" min="10" placeholder="Einsatz eingeben..." value="10">
+                            </div>
+
+                            <button id="roulette-spin-btn" class="btn-primary">🎡 Kugel rollen lassen</button>
+                        </div>
+                    </div>
+
+                    <!-- Roulette result displaying -->
+                    <div id="roulette-result-card" class="result-card hidden glass-panel">
+                        <div class="result-icon" id="roulette-result-icon"></div>
+                        <div class="result-details">
+                            <h4 id="roulette-result-title">Gewonnen!</h4>
+                            <p id="roulette-result-desc">Die Kugel landete auf Rot 7.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 📦 CASES OPENING TAB -->
+                <section id="tab-cases" class="tab-content">
+                    <div class="game-header">
+                        <h2>📦 Case Opening</h2>
+                        <p>Öffne klassische Beutekisten für Coins! Jede geöffnete Kiste hat eine seltene 0.1% Jackpot-Chance auf das 20% Rabatt-Ticket und die Jackpot-Rolle!</p>
+                    </div>
+
+                    <div class="cases-arena">
+                        <!-- Case opening scrolling box -->
+                        <div class="case-scroll-container glass-panel">
+                            <div class="case-scroll-pointer"></div>
+                            <div class="case-scroll-tape" id="case-tape">
+                                <!-- Tape items will be generated dynamically -->
+                                <div class="tape-placeholder">Wähle eine Kiste und klicke auf "Kiste öffnen", um zu starten!</div>
+                            </div>
+                        </div>
+
+                        <!-- Crate selectors -->
+                        <div class="crate-selector-panel glass-panel">
+                            <h3>Kiste auswählen</h3>
+                            
+                            <div class="crates-grid" id="crates-container">
+                                <!-- Gratis daily crate -->
+                                <div class="crate-card gratis hidden" data-crate="free">
+                                    <div class="crate-icon">🎁</div>
+                                    <div class="crate-info">
+                                        <h4>Gratis-Kiste</h4>
+                                        <p>Deine tägliche Freikiste</p>
+                                    </div>
+                                    <div class="crate-cost">0 Coins</div>
+                                </div>
+                                
+                                <div class="crate-card" data-crate="20">
+                                    <div class="crate-icon">📦</div>
+                                    <div class="crate-info">
+                                        <h4>Holz-Kiste</h4>
+                                        <p>Max. Gewinn: 200 Coins</p>
+                                    </div>
+                                    <div class="crate-cost">20 Coins</div>
+                                </div>
+
+                                <div class="crate-card" data-crate="50">
+                                    <div class="crate-icon">⚙️</div>
+                                    <div class="crate-info">
+                                        <h4>Eisen-Kiste</h4>
+                                        <p>Max. Gewinn: 500 Coins</p>
+                                    </div>
+                                    <div class="crate-cost">50 Coins</div>
+                                </div>
+
+                                <div class="crate-card active" data-crate="100">
+                                    <div class="crate-icon">⚡</div>
+                                    <div class="crate-info">
+                                        <h4>Kupfer-Kiste</h4>
+                                        <p>Max. Gewinn: 1.000 Coins</p>
+                                    </div>
+                                    <div class="crate-cost">100 Coins</div>
+                                </div>
+
+                                <div class="crate-card" data-crate="250">
+                                    <div class="crate-icon">⛓️</div>
+                                    <div class="crate-info">
+                                        <h4>Stahl-Kiste</h4>
+                                        <p>Max. Gewinn: 1.000 Coins</p>
+                                    </div>
+                                    <div class="crate-cost">250 Coins</div>
+                                </div>
+
+                                <div class="crate-card" data-crate="500">
+                                    <div class="crate-icon">👑</div>
+                                    <div class="crate-info">
+                                        <h4>Gold-Kiste</h4>
+                                        <p>Max. Gewinn: 1.000 Coins</p>
+                                    </div>
+                                    <div class="crate-cost">500 Coins</div>
+                                </div>
+
+                                <div class="crate-card sakura-glow" data-crate="1000">
+                                    <div class="crate-icon">🌸</div>
+                                    <div class="crate-info">
+                                        <h4>Sakura-Spezial</h4>
+                                        <p>Max. Gewinn: 1.000 Coins (Beste Chancen)</p>
+                                    </div>
+                                    <div class="crate-cost">1.000 Coins</div>
+                                </div>
+                            </div>
+
+                            <button id="open-case-btn" class="btn-primary margin-top">📦 Kiste öffnen</button>
+                        </div>
+                    </div>
+
+                    <!-- Cases results display -->
+                    <div id="cases-result-card" class="result-card hidden glass-panel">
+                        <div class="result-icon" id="cases-result-icon"></div>
+                        <div class="result-details">
+                            <h4 id="cases-result-title">Kiste geöffnet!</h4>
+                            <p id="cases-result-desc">Du hast etwas gezogen!</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 🃏 BLACKJACK TAB -->
+                <section id="tab-blackjack" class="tab-content">
+                    <div class="game-header">
+                        <h2>🃏 Blackjack</h2>
+                        <p>Fordere den Dealer heraus, erreiche 21 oder ziehe Karten, bis du den Dealer schlägst! Blackjack (21 mit 2 Karten) gewinnt das 2,5-fache des Einsatzes!</p>
+                    </div>
+
+                    <div class="blackjack-arena">
+                        <!-- Felt Table Layout -->
+                        <div class="blackjack-table glass-panel">
+                            
+                            <!-- Dealer Zone -->
+                            <div class="table-zone dealer-zone">
+                                <div class="zone-label">Bank <span class="score-badge" id="bj-dealer-score">0</span></div>
+                                <div class="card-slots" id="bj-dealer-cards">
+                                    <!-- Dealer cards dealt dynamically -->
+                                    <div class="bj-empty-card-placeholder">Keine Karten</div>
+                                </div>
+                            </div>
+
+                            <div class="table-separator"><span>Sakura Club Table</span></div>
+
+                            <!-- Player Zone -->
+                            <div class="table-zone player-zone">
+                                <div class="card-slots" id="bj-player-cards">
+                                    <!-- Player cards dealt dynamically -->
+                                    <div class="bj-empty-card-placeholder">Keine Karten</div>
+                                </div>
+                                <div class="zone-label">Deine Karten <span class="score-badge" id="bj-player-score">0</span></div>
+                            </div>
+                            
+                        </div>
+
+                        <!-- Controls Panel -->
+                        <div class="blackjack-controls-panel glass-panel">
+                            
+                            <!-- Bet set layout (Only shown when state is inactive) -->
+                            <div id="bj-pregame-controls">
+                                <h3>Einsatz festlegen</h3>
+                                <div class="quick-bets">
+                                    <button class="btn-quick-bet-bj" data-amount="10">10</button>
+                                    <button class="btn-quick-bet-bj" data-amount="50">50</button>
+                                    <button class="btn-quick-bet-bj" data-amount="100">100</button>
+                                    <button class="btn-quick-bet-bj" data-amount="1000">1K</button>
+                                    <button class="btn-quick-bet-bj" data-amount="10000">10K</button>
+                                    <button class="btn-quick-bet-bj" data-amount="100000">100K</button>
+                                    <button class="btn-quick-bet-bj gold-glow" data-amount="all_in">ALL IN</button>
+                                </div>
+
+                                <div class="custom-bet-input">
+                                    <i class="fa-solid fa-coins input-coin"></i>
+                                    <input type="number" id="bj-bet-input" min="10" placeholder="Einsatz eingeben..." value="10">
+                                </div>
+
+                                <button id="bj-deal-btn" class="btn-primary">🃏 Karten geben lassen</button>
+                            </div>
+
+                            <!-- Hit, Stand, Double controls (Only shown when state is active) -->
+                            <div id="bj-ingame-controls" class="hidden">
+                                <h3>Deine Spieloptionen</h3>
+                                <div class="current-bj-bet">Aktueller Einsatz: <strong id="bj-current-bet-display">10 Coins</strong></div>
+                                
+                                <div class="bj-action-buttons">
+                                    <button id="bj-hit-btn" class="btn-action success-glow"><i class="fa-solid fa-plus"></i> Hit (Karte ziehen)</button>
+                                    <button id="bj-stand-btn" class="btn-action danger-glow"><i class="fa-solid fa-hand"></i> Stand (Halten)</button>
+                                    <button id="bj-double-btn" class="btn-action primary-glow"><i class="fa-solid fa-angles-up"></i> Double Down</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blackjack result displays -->
+                    <div id="bj-result-card" class="result-card hidden glass-panel">
+                        <div class="result-icon" id="bj-result-icon"></div>
+                        <div class="result-details">
+                            <h4 id="bj-result-title">Blackjack!</h4>
+                            <p id="bj-result-desc">Du hast gewonnen.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 🎁 DAILY CLAIM TAB -->
+                <section id="tab-daily" class="tab-content">
+                    <div class="game-header">
+                        <h2>🎁 Täglich Gratis-Coins & Kisten</h2>
+                        <p>Klicke jeden Tag hier, um dir 100 kostenlose Coins sowie 1 Gratis-Kiste für das Case Opening abzuholen!</p>
+                    </div>
+
+                    <div class="daily-gift-container glass-panel">
+                        <div class="gift-animation-box" id="daily-gift-icon">
+                            <i class="fa-solid fa-box-open gift-box-icon"></i>
+                        </div>
+                        
+                        <h3>Täglicher Bonus</h3>
+                        <p>Bereit zum Einsammeln: <strong>100 Coins</strong> + <strong>1 Gratis-Kiste</strong>!</p>
+                        
+                        <!-- Claim daily button -->
+                        <button id="claim-daily-btn" class="btn-primary animate-pulse">🎁 Bonus abholen</button>
+                        
+                        <div id="daily-cooldown-display" class="cooldown-timer hidden">
+                            <i class="fa-solid fa-hourglass-half"></i> Nächster Claim in: <strong id="daily-time-remaining">24:00:00</strong>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- 🚪 LOGIN SCREEN (Showed if unauthenticated) -->
+    <div id="login-container" class="login-screen">
+        <div class="login-card glass-panel text-center">
+            <div class="login-header">
+                <img src="https://i.postimg.cc/1381yM8G/grafik.png" alt="Sakura Logo" class="login-logo pulse-logo">
+                <h2>Sakura Casino</h2>
+                <p>Willkommen im exklusiven Sakura Casino Dashboard! Logge dich über Discord ein, um deinen Kontostand zu synchronisieren und sofort loszuspielen.</p>
+            </div>
+            
+            <div class="login-features">
+                <div class="feature-item">
+                    <i class="fa-solid fa-coins feature-icon gold-coin"></i>
+                    <div>
+                        <h4>Synchronisierte Coins</h4>
+                        <p>Spiele auf der Webseite – deine Coins sind sofort im Discord aktualisiert.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-gift feature-icon gift-icon"></i>
+                    <div>
+                        <h4>Kostenlose Geschenke</h4>
+                        <p>Hole dir täglich 100 gratis Coins und Freikisten.</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <i class="fa-solid fa-shield-halved feature-icon shield-icon"></i>
+                    <div>
+                        <h4>Sicher & Transparent</h4>
+                        <p>Sichere Anmeldung direkt über den offiziellen Discord OAuth Flow.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="discord-login-btn" class="btn-discord animate-pulse-btn">
+                <i class="fa-brands fa-discord"></i> Mit Discord anmelden
+            </button>
+            
+            <div class="login-footer">
+                <p>Spielen auf eigene Gefahr. Sakura Casino • 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Live Toast/Alert Banner -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- App JS script -->
+    <script src="app.js"></script>
+</body>
+</html>
