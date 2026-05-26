@@ -220,7 +220,8 @@ const updateEconomyBalance = async () => {
 
 // Discord authorization redirect
 document.getElementById('discord-login-btn').addEventListener('click', () => {
-    window.location.href = `${BACKEND_URL}/api/auth/discord`;
+    const currentOrigin = window.location.origin + window.location.pathname;
+    window.location.href = `${BACKEND_URL}/api/auth/discord?redirect=${encodeURIComponent(currentOrigin)}`;
 });
 
 // Logout handler
